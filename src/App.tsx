@@ -1,13 +1,18 @@
-import Header from "@/components/ui/Header";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import { useLanguage } from "./hooks/useLanguage";
+import { useEffect } from "react";
 
 export default function App() {
+  const { init } = useLanguage();
+  useEffect(() => {
+    init();
+  }, [init]);
   return (
     <BrowserRouter>
-      <div className="container m-auto">
-        <Header />
-        <h1 className="text-3xl font-bold underline">Hello world!</h1>
-      </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
     </BrowserRouter>
   );
 }
