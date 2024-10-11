@@ -1,5 +1,5 @@
 import Header from "@/components/Header";
-import ShipmentProgress from "@/components/ShipmentProgress";
+import ShipmentProgress from "@/components/Shipment/ShipmentProgress";
 
 export default function Home() {
   return (
