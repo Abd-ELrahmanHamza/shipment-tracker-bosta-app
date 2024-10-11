@@ -1,16 +1,16 @@
 import React from "react";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "primary" | "secondary" | "text" | "transparent"; // Define variants
+  variant?: "primary" | "secondary" | "text" | "transparent";
   children: React.ReactNode;
-  className?: string; // Allow passing custom className
+  className?: string;
 }
 
 const Button: React.FC<ButtonProps> = ({
   variant = "primary",
   children,
   className = "",
-  ...props // Spread the remaining props to the button element
+  ...props
 }) => {
   const baseStyles =
     "font-medium py-2 px-4 rounded transition duration-300 ease-in-out";
@@ -30,8 +30,8 @@ const Button: React.FC<ButtonProps> = ({
 
   return (
     <button
-      className={`${baseStyles} ${variantStyles} ${className}`} // Combine base, variant, and custom className
-      {...props} // Spread the remaining props (like onClick, disabled, etc.)
+      className={`${baseStyles} ${variantStyles} ${className}`} // `className` is now at the end
+      {...props}
     >
       {children}
     </button>

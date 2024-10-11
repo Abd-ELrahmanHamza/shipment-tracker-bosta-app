@@ -5,6 +5,7 @@ import { Bars3Icon } from "@heroicons/react/16/solid";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Button from "./ui/Button";
+import TrackRequest from "./TrackRequest";
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -33,12 +34,15 @@ export default function Home() {
             </Link>
 
             <div className="flex items-center lg:order-2">
-              <Link
-                to="/"
-                className="text-gray-800 hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none"
-              >
-                {t("Login")}
-              </Link>
+              <div className="hidden lg:flex lg:items-center">
+                <TrackRequest />
+                <Link
+                  to="/"
+                  className="text-gray-800 hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none font-semibold"
+                >
+                  {t("Login")}
+                </Link>
+              </div>
               <Button variant="text" onClick={() => toggleLanguage()}>
                 {toggleString}
               </Button>
@@ -62,12 +66,23 @@ export default function Home() {
                   <li key={item.title}>
                     <Link
                       to={item.to}
-                      className="block text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0"
+                      className="block text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 font-semibold"
                     >
                       {item.title}
                     </Link>
                   </li>
                 ))}
+                <li className="lg:hidden">
+                  <TrackRequest />
+                </li>
+                <li className="lg:hidden">
+                  <Link
+                    to="/"
+                    className="block text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 font-semibold"
+                  >
+                    {t("Login")}
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>
