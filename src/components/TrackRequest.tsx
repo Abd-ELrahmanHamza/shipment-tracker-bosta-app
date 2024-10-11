@@ -64,7 +64,10 @@ export default function TrackRequest() {
               onChange={(e) => setShipmentNumber(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && handleMouseEnter()}
             />
-            <button className="bg-red-600 p-2 flex items-center justify-center">
+            <button
+              className="bg-red-600 p-2 flex items-center justify-center"
+              onClick={handleMouseEnter}
+            >
               <MagnifyingGlassIcon className="h-8 w-8 text-white bg-red-600" />
             </button>
           </div>

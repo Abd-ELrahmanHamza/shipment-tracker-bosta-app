@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-cairo;
+  }
+}
+
+/* Remove the following @font-face rule */
+/*
+@font-face {
+  font-family: 'Cairo';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Cairo Regular'), local('Cairo-Regular'), url(https://fonts.gstatic.com/s/cairo/v9/SLXHc1nY6Hkvalq5C8Iw.woff2) format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF, U+1EE00-1EEFF;
+}
+*/

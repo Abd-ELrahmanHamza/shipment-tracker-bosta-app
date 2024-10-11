@@ -1,15 +1,18 @@
 // @ts-expect-error - This import is not working
 import EnglishLogo from "@/assets/images/english-logo.svg?react";
+// @ts-expect-error - This import is not working
+import ArabicLogo from "@/assets/images/arabic-logo.svg?react";
 import { useLanguage } from "@/hooks/useLanguage";
 import { Bars3Icon } from "@heroicons/react/16/solid";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Button from "./ui/Button";
 import TrackRequest from "./TrackRequest";
+import Language from "@/models/language.enum";
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { t, toggleString, toggleLanguage } = useLanguage();
+  const { t, toggleString, toggleLanguage, currentLanguage } = useLanguage();
   const menuItems = [
     {
       title: t("Home"),
@@ -26,11 +29,15 @@ export default function Home() {
   ];
   return (
     <>
-      <header>
+      <header className="border-b">
         <nav className="bg-white border-gray-200 px-4 md:px-6 py-2.5 relative">
           <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
             <Link to="/" className="flex items-center">
-              <EnglishLogo />
+              {currentLanguage === Language.Arabic ? (
+                <ArabicLogo />
+              ) : (
+                <EnglishLogo />
+              )}
             </Link>
 
             <div className="flex items-center md:order-2">
