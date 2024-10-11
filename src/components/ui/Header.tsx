@@ -2,26 +2,32 @@
 import EnglishLogo from "@/assets/images/english-logo.svg?react";
 import { Bars3Icon } from "@heroicons/react/16/solid";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-
-const menuItems = [
-  {
-    title: "Company",
-    to: "#",
-  },
-  {
-    title: "Pricing",
-    to: "#",
-  },
-  {
-    title: "Contact",
-    to: "#",
-  },
-];
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  const { t, i18n } = useTranslation();
+  // print the current language words
+  console.log(t("Home"));
+  const menuItems = [
+    {
+      title: t("Home"),
+      to: "#",
+    },
+    {
+      title: t("Prices"),
+      to: "#",
+    },
+    {
+      title: t("Sales"),
+      to: "#",
+    },
+  ];
+  const changeLanguage = (lng: string) => {
+    document.documentElement.dir = lng === "ar" ? "rtl" : "ltr";
+    i18n.changeLanguage(lng);
+  };
   return (
     <>
       <header>
@@ -77,6 +83,8 @@ export default function Home() {
             </div>
           </div>
         </nav>
+        <button onClick={() => changeLanguage("en")}>English</button>
+        <button onClick={() => changeLanguage("ar")}>Arabic</button>
       </header>
     </>
   );

@@ -1,4 +1,4 @@
-import Header from "@/ui/Header";
+import Header from "@/components/ui/Header";
 import { BrowserRouter } from "react-router-dom";
 
 export default function App() {
