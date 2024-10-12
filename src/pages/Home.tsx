@@ -4,8 +4,11 @@ import ShipmentAddress from "@/components/ShipmentAddress/ShipmentAddress";
 import ShipmentReport from "@/components/ShipmentAddress/ShipmentReport";
 import ShipmentDetails from "@/components/ShipmentDetails/ShipmentDetails";
 import { ShipmentProvider } from "@/contexts/Shipments";
+import { Navigate, useParams } from "react-router-dom";
 
 export default function Home() {
+  const { id } = useParams();
+  if (!id) return <Navigate to="/84043113" />;
   return (
     <ShipmentProvider>
       <Header />

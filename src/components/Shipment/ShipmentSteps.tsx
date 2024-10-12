@@ -75,7 +75,7 @@ const StepsTitles = ({
 };
 
 export default function ShipmentSteps({ shipment }: { shipment: Shipment }) {
-  const activeStep = 3;
+  const activeStep = shipment.CurrentStatus.state === "DELIVERED" ? 5 : 3;
   const { t } = useLanguage();
   const steps = [
     "Shipment created",
