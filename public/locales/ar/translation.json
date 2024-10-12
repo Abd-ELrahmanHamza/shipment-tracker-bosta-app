@@ -14,5 +14,12 @@
   "TICKET_CREATED": "تم إنشاء التذكرة",
   "NOT_YET_SHIPPED": "لم يتم الشحن بعد",
   "WAITING_FOR_CUSTOMER_ACTION": "في انتظار تحرك العميل",
-  "AVAILABLE_FOR_PICKUP": "متاح للاستلام"
+  "AVAILABLE_FOR_PICKUP": "متاح للاستلام",
+  "Branch": "الفرع",
+  "Date": "التاريخ",
+  "Time": "الوقت",
+  "Details": "التفاصيل",
+  "1234 Elm Street, Springfield, IL 62704": "1234 شارع إلم، سبرينغفيلد، إلينوي 62704",
+  "Do you have a problem with your shipment?!": "!هل لديك مشكلة مع شحنتك؟",
+  "Report an issue": "الإبلاغ عن مشكلة"
 }

@@ -14,5 +14,12 @@
   "TICKET_CREATED": "Ticket Created",
   "NOT_YET_SHIPPED": "Not Yet Shipped",
   "WAITING_FOR_CUSTOMER_ACTION": "Waiting for Customer Action",
-  "AVAILABLE_FOR_PICKUP": "Available for Pickup"
+  "AVAILABLE_FOR_PICKUP": "Available for Pickup",
+  "Branch": "Branch",
+  "Date": "Date",
+  "Time": "Time",
+  "Details": "Details",
+  "1234 Elm Street, Springfield, IL 62704": "1234 Elm Street, Springfield, IL 62704",
+  "Do you have a problem with your shipment?!": "Do you have a problem with your shipment?!",
+  "Report an issue": "Report an issue"
 }

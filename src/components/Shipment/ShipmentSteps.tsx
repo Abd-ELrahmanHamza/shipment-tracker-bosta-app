@@ -55,7 +55,7 @@ const StepsTitles = ({
         className={`flex items-center justify-center rounded-full max-w-40 text-xs ${
           step <= active ? `text-gray-900` : "text-gray-400"
         } ${step === 0 && "!text-right"} ${isLast && "!text-left"} ${
-          !isLast && step !== 0 && "rtl:translate-x-1/3 -translate-x-1/4"
+          !isLast && step !== 1 && "rtl:translate-x-1/3 -translate-x-1/4"
         }
         `}
       >
@@ -71,36 +71,38 @@ export default function ShipmentSteps({ shipment }: { shipment: Shipment }) {
   console.log(shipment);
   const { t } = useTranslation();
   return (
-    <div>
-      <ol className="flex items-center w-full">
-        {shipment.TransitEvents.map((event, index) => (
-          <Step
-            key={event.timestamp}
-            active={activeStep}
-            step={index + 1}
-            isLast={index === shipment.TransitEvents.length - 1}
-            status={shipment.CurrentStatus.state}
-          >
-            {index < activeStep - 1 ? (
-              <CheckIcon className="w-6 h-6 text-white" />
-            ) : (
-              <TruckIcon className="w-8 h-8 text-white" />
-            )}
-          </Step>
-        ))}
-      </ol>
-      <ol className="flex items-center w-full mt-2">
-        {shipment.TransitEvents.map((event, index) => (
-          <StepsTitles
-            key={event.timestamp}
-            active={activeStep}
-            step={index + 1}
-            isLast={index === shipment.TransitEvents.length - 1}
-          >
-            {t(event.state)}
-          </StepsTitles>
-        ))}
-      </ol>
+    <div className="overflow-x-auto overflow-y-hidden">
+      <div className="min-w-[600px] ">
+        <ol className="flex items-center w-full">
+          {shipment.TransitEvents?.map((event, index) => (
+            <Step
+              key={event.timestamp}
+              active={activeStep}
+              step={index + 1}
+              isLast={index === shipment.TransitEvents?.length - 1}
+              status={shipment.CurrentStatus?.state}
+            >
+              {index < activeStep - 1 ? (
+                <CheckIcon className="w-6 h-6 text-white" />
+              ) : (
+                <TruckIcon className="w-8 h-8 text-white" />
+              )}
+            </Step>
+          ))}
+        </ol>
+        <ol className="flex items-center w-full mt-2">
+          {shipment.TransitEvents?.map((event, index) => (
+            <StepsTitles
+              key={event.timestamp}
+              active={activeStep}
+              step={index + 1}
+              isLast={index === shipment.TransitEvents?.length - 1}
+            >
+              {t(event.state)}
+            </StepsTitles>
+          ))}
+        </ol>
+      </div>
     </div>
   );
 }
