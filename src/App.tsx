@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route, HashRouter } from "react-router-dom";
 import Home from "./pages/Home";
 import { useLanguage } from "./hooks/useLanguage";
 import { useEffect } from "react";
@@ -12,13 +12,13 @@ export default function App() {
     init();
   }, [init]);
   return (
-    <BrowserRouter>
+    <HashRouter>
       <QueryClientProvider client={queryClient}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/:id" element={<Home />} />
         </Routes>
       </QueryClientProvider>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
