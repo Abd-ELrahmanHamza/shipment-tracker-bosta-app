@@ -1,4 +1,5 @@
 {
+  "homepage": ".",
   "name": "bosta",
   "private": true,
   "version": "0.0.0",
@@ -9,7 +10,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@heroicons/react": "^2.1.5",
