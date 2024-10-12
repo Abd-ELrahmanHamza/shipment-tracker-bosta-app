@@ -39,17 +39,28 @@ const Step = ({
 
 export default function ShipmentSteps({ shipment }: { shipment: Shipment }) {
   const activeStep = 2;
-  const steps = {
-    1: "Shipment Picked Up",
-    2: "In Transit",
-    3: "Out for Delivery",
-    4: "Delivered",
-  };
   console.log(shipment);
   return (
     <div>
       <ol className="flex items-center w-full">
-        {Object.keys(steps).map((step, index) => (
+        {
+          shipment.TransitEvents.map((event, index) => (
+            <Step
+              key={event.timestamp}
+              active={activeStep}
+              step={index + 1}
+              isLast={index === shipment.TransitEvents.length - 1}
+              status={shipment.CurrentStatus.state}
+            >
+              {index < activeStep ? (
+                <CheckIcon className="w-6 h-6 text-white" />
+              ) : (
+                <TruckIcon className="w-8 h-8 text-white" />
+              )}
+            </Step>
+          ))
+        }
+        {/* {Object.keys(steps).map((step, index) => (
           <Step
             key={step}
             active={activeStep}
@@ -63,7 +74,7 @@ export default function ShipmentSteps({ shipment }: { shipment: Shipment }) {
               <TruckIcon className="w-8 h-8 text-white" />
             )}
           </Step>
-        ))}
+        ))} */}
       </ol>
     </div>
   );

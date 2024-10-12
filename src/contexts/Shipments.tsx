@@ -1,12 +1,11 @@
 import { useGetShipment } from "@/api/useGetShipment";
 import { Shipment } from "@/models/Shipment";
-import { createContext, useContext, ReactNode, useState } from "react";
+import { createContext, useContext, ReactNode } from "react";
+import { useParams } from "react-router-dom";
 
 interface ShipmentContextProps {
   shipmentID?: string;
-  setShipmentID?: (shipmentID: string) => void;
   shipment: Shipment;
-  changeShipmentID: (shipmentID: string) => void;
   isLoading?: boolean;
   error: Error | null;
 }
@@ -20,17 +19,17 @@ interface ShipmentProviderProps {
 }
 
 const ShipmentProvider = ({ children }: ShipmentProviderProps) => {
-  const [shipmentID, setShipmentID] = useState<string>("84043113");
-  const { data: shipment, isLoading, error } = useGetShipment(shipmentID);
-  const changeShipmentID = (shipmentID: string) => {
-    setShipmentID(shipmentID);
-  };
+  const { id: shipmentID } = useParams();
+  console.log(shipmentID, "shipmentID");
+  const {
+    data: shipment,
+    isLoading,
+    error,
+  } = useGetShipment(shipmentID || "84043113");
 
   const contextValue: ShipmentContextProps = {
     shipmentID,
-    setShipmentID,
     shipment,
-    changeShipmentID,
     isLoading,
     error,
   };

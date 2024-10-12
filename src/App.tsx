@@ -2,7 +2,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import { useLanguage } from "./hooks/useLanguage";
 import { useEffect } from "react";
-import { ShipmentProvider } from "./Contexts/Shipments";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const queryClient = new QueryClient();
@@ -15,12 +14,10 @@ export default function App() {
   return (
     <BrowserRouter>
       <QueryClientProvider client={queryClient}>
-        <ShipmentProvider>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/:id" element={<Home />} />
-          </Routes>
-        </ShipmentProvider>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/:id" element={<Home />} />
+        </Routes>
       </QueryClientProvider>
     </BrowserRouter>
   );
