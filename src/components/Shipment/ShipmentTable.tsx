@@ -28,10 +28,10 @@ export default function ShipmentTable({ shipment }: { shipment: Shipment }) {
           <tr>
             <td
               className={`font-semibold text-${statusColor(
-                shipment.CurrentStatus?.state || ""
+                shipment.CurrentStatus?.state
               )}`}
             >
-              {t(shipment.CurrentStatus?.state || "")}
+              {t(shipment.CurrentStatus?.state)}
             </td>
             <td className="font-semibold">
               {new Date(shipment.CurrentStatus?.timestamp).toLocaleString(

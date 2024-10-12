@@ -1,7 +1,7 @@
 import statusColor from "@/constants/statusColor";
+import { useLanguage } from "@/hooks/useLanguage";
 import { Shipment } from "@/models/Shipment";
 import { CheckIcon, TruckIcon } from "@heroicons/react/16/solid";
-import { useTranslation } from "react-i18next";
 
 const Step = ({
   active,
@@ -67,19 +67,24 @@ const StepsTitles = ({
 };
 
 export default function ShipmentSteps({ shipment }: { shipment: Shipment }) {
-  const activeStep = 2;
-  console.log(shipment);
-  const { t } = useTranslation();
+  const activeStep = 3;
+  const { t } = useLanguage();
+  const steps = [
+    "Shipment created",
+    "Shipment is received at the hub",
+    "Shipment is out for delivery",
+    "Shipment is delivered",
+  ];
   return (
     <div className="overflow-x-auto overflow-y-hidden">
       <div className="min-w-[600px] ">
         <ol className="flex items-center w-full">
-          {shipment.TransitEvents?.map((event, index) => (
+          {steps.map((event, index) => (
             <Step
-              key={event.timestamp}
+              key={event}
               active={activeStep}
               step={index + 1}
-              isLast={index === shipment.TransitEvents?.length - 1}
+              isLast={index === steps.length - 1}
               status={shipment.CurrentStatus?.state}
             >
               {index < activeStep - 1 ? (
@@ -91,14 +96,14 @@ export default function ShipmentSteps({ shipment }: { shipment: Shipment }) {
           ))}
         </ol>
         <ol className="flex items-center w-full mt-2">
-          {shipment.TransitEvents?.map((event, index) => (
+          {steps.map((event, index) => (
             <StepsTitles
-              key={event.timestamp}
+              key={event}
               active={activeStep}
               step={index + 1}
-              isLast={index === shipment.TransitEvents?.length - 1}
+              isLast={index === steps.length - 1}
             >
-              {t(event.state)}
+              {t(event)}
             </StepsTitles>
           ))}
         </ol>
