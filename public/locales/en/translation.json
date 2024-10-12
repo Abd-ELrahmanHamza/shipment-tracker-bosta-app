@@ -7,5 +7,8 @@
   "Tracking Number": "Tracking Number",
   "Last Update": "Last Update",
   "Provider Name": "Provider Name",
-  "Promise Date": "Promise Date"
+  "Promise Date": "Promise Date",
+  "DELIVERED": "Delivered",
+  "CANCELLED": "Cancelled",
+  "DELIVERED_TO_SENDER": "Delivered to Sender"
 }

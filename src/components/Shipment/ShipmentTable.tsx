@@ -1,8 +1,12 @@
+import statusColor from "@/constants/statusColor";
 import { Shipment } from "@/models/Shipment";
 import { useTranslation } from "react-i18next";
 
 export default function ShipmentTable({ shipment }: { shipment: Shipment }) {
   const { t } = useTranslation();
+  console.log(
+    statusColor[shipment.CurrentStatus.state as keyof typeof statusColor]
+  );
   return (
     <table className="table-auto w-full">
       <thead>
@@ -23,8 +27,12 @@ export default function ShipmentTable({ shipment }: { shipment: Shipment }) {
       </thead>
       <tbody>
         <tr>
-          <td className="font-semibold text-primary-500">
-            {shipment.CurrentStatus.state}
+          <td
+            className={`font-semibold text-${statusColor(
+              shipment.CurrentStatus.state
+            )}`}
+          >
+            {t(shipment.CurrentStatus.state)}
           </td>
           <td className="font-semibold">
             {new Date(shipment.CurrentStatus.timestamp).toLocaleString(

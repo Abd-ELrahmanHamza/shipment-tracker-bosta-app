@@ -1,3 +1,4 @@
+import statusColor from "@/constants/statusColor";
 import { Shipment } from "@/models/Shipment";
 import { CheckIcon, TruckIcon } from "@heroicons/react/16/solid";
 
@@ -6,17 +7,19 @@ const Step = ({
   step,
   children,
   isLast,
+  status,
 }: {
   active: number;
   step: number;
   children: React.ReactNode;
   isLast: boolean;
+  status: string;
 }) => {
   return (
     <li className={`flex ${!isLast && "w-full"} items-center`}>
       <span
         className={`flex items-center justify-center rounded-full ${
-          step <= active ? "bg-primary-500" : "bg-gray-200"
+          step <= active ? `bg-${statusColor(status)}` : "bg-gray-200"
         }
         ${step < active ? "w-5 h-5" : "w-10 h-10 lg:h-12 lg:w-12"}
         `}
@@ -26,7 +29,7 @@ const Step = ({
       {!isLast && (
         <div
           className={`flex-1 h-1 ${
-            step < active ? "bg-primary-500" : "bg-gray-200"
+            step < active ? `bg-${statusColor(status)}` : "bg-gray-200"
           }`}
         ></div>
       )}
@@ -42,6 +45,7 @@ export default function ShipmentSteps({ shipment }: { shipment: Shipment }) {
     3: "Out for Delivery",
     4: "Delivered",
   };
+  console.log(shipment);
   return (
     <div>
       <ol className="flex items-center w-full">
@@ -51,6 +55,7 @@ export default function ShipmentSteps({ shipment }: { shipment: Shipment }) {
             active={activeStep}
             step={parseInt(step)}
             isLast={index === Object.keys(steps).length - 1}
+            status={shipment.CurrentStatus.state}
           >
             {parseInt(step) < activeStep ? (
               <CheckIcon className="w-6 h-6 text-white" />
