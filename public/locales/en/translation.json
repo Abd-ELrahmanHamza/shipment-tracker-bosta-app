@@ -4,5 +4,8 @@
   "Sales": "Sales",
   "Login": "Login",
   "Track Your Shipment": "Track Your Shipment",
-  "Tracking Number": "Tracking Number"
+  "Tracking Number": "Tracking Number",
+  "Last Update": "Last Update",
+  "Provider Name": "Provider Name",
+  "Promise Date": "Promise Date"
 }

@@ -1,3 +1,4 @@
+import { Shipment } from "@/models/Shipment";
 import { CheckIcon, TruckIcon } from "@heroicons/react/16/solid";
 
 const Step = ({
@@ -11,18 +12,13 @@ const Step = ({
   children: React.ReactNode;
   isLast: boolean;
 }) => {
-  console.log("step", step);
   return (
     <li className={`flex ${!isLast && "w-full"} items-center`}>
       <span
         className={`flex items-center justify-center rounded-full ${
           step <= active ? "bg-primary-500" : "bg-gray-200"
         }
-        ${
-          step < active
-            ? "w-5 h-5"
-            : "w-10 h-10 lg:h-12 lg:w-12"
-        }
+        ${step < active ? "w-5 h-5" : "w-10 h-10 lg:h-12 lg:w-12"}
         `}
       >
         {children}
@@ -38,7 +34,7 @@ const Step = ({
   );
 };
 
-export default function ShipmentSteps() {
+export default function ShipmentSteps({ shipment }: { shipment: Shipment }) {
   const activeStep = 2;
   const steps = {
     1: "Shipment Picked Up",

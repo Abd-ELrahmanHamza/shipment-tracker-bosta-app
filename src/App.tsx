@@ -13,15 +13,15 @@ export default function App() {
     init();
   }, [init]);
   return (
-    <QueryClientProvider client={queryClient}>
-      <ShipmentProvider>
-        <BrowserRouter>
+    <BrowserRouter>
+      <QueryClientProvider client={queryClient}>
+        <ShipmentProvider>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/:id" element={<Home />} />
           </Routes>
-        </BrowserRouter>
-      </ShipmentProvider>
-    </QueryClientProvider>
+        </ShipmentProvider>
+      </QueryClientProvider>
+    </BrowserRouter>
   );
 }

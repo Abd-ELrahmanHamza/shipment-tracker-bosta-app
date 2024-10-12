@@ -1,10 +1,7 @@
 import Header from "@/components/Header";
 import ShipmentProgress from "@/components/Shipment/ShipmentProgress";
-import { useShipment } from "@/Contexts/Shipments";
 
 export default function Home() {
-  const { shipment } = useShipment();
-  console.log("shipment", shipment);
   return (
     <>
       <Header />

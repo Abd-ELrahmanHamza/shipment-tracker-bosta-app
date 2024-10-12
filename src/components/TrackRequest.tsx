@@ -1,4 +1,5 @@
 import Button from "@/components/ui/Button";
+import { useShipment } from "@/Contexts/Shipments";
 import { useLanguage } from "@/hooks/useLanguage";
 import Language from "@/models/language.enum";
 import {
@@ -12,9 +13,11 @@ export default function TrackRequest() {
   const { t, currentLanguage } = useLanguage();
   const [isHovered, setIsHovered] = useState(false);
   const [shipmentNumber, setShipmentNumber] = useState("");
+  const { changeShipmentID } = useShipment();
   const navigate = useNavigate();
   const handleMouseEnter = () => {
     setIsHovered(true);
+    changeShipmentID(shipmentNumber!);
     navigate(`/${shipmentNumber}`);
   };
   return (

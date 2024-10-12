@@ -3,14 +3,16 @@ import { Shipment } from "@/models/Shipment";
 import { createContext, useContext, ReactNode, useState } from "react";
 
 interface ShipmentContextProps {
-  shipmentID?: number;
-  setShipmentID?: (shipmentID: number) => void;
+  shipmentID?: string;
+  setShipmentID?: (shipmentID: string) => void;
   shipment: Shipment;
-  changeShipmentID?: (shipmentID: number) => void;
+  changeShipmentID: (shipmentID: string) => void;
+  isLoading?: boolean;
+  error: Error | null;
 }
 
-const ShipmentContext = createContext<ShipmentContextProps | undefined>(
-  undefined
+const ShipmentContext = createContext<ShipmentContextProps>(
+  {} as ShipmentContextProps
 );
 
 interface ShipmentProviderProps {
@@ -18,9 +20,9 @@ interface ShipmentProviderProps {
 }
 
 const ShipmentProvider = ({ children }: ShipmentProviderProps) => {
-  const [shipmentID, setShipmentID] = useState<number>(84043113);
-  const { data: shipment } = useGetShipment(shipmentID);
-  const changeShipmentID = (shipmentID: number) => {
+  const [shipmentID, setShipmentID] = useState<string>("84043113");
+  const { data: shipment, isLoading, error } = useGetShipment(shipmentID);
+  const changeShipmentID = (shipmentID: string) => {
     setShipmentID(shipmentID);
   };
 
@@ -29,6 +31,8 @@ const ShipmentProvider = ({ children }: ShipmentProviderProps) => {
     setShipmentID,
     shipment,
     changeShipmentID,
+    isLoading,
+    error,
   };
   return (
     <ShipmentContext.Provider value={contextValue}>
