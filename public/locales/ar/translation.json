@@ -10,5 +10,9 @@
   "Promise Date": "موعد التسليم خلال",
   "DELIVERED": "تم التسليم",
   "CANCELLED": "تم الإلغاء",
-  "DELIVERED_TO_SENDER": "تم التسليم للمرسل"
+  "DELIVERED_TO_SENDER": "تم التسليم للمرسل",
+  "TICKET_CREATED": "تم إنشاء التذكرة",
+  "NOT_YET_SHIPPED": "لم يتم الشحن بعد",
+  "WAITING_FOR_CUSTOMER_ACTION": "في انتظار تحرك العميل",
+  "AVAILABLE_FOR_PICKUP": "متاح للاستلام"
 }

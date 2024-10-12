@@ -10,5 +10,9 @@
   "Promise Date": "Promise Date",
   "DELIVERED": "Delivered",
   "CANCELLED": "Cancelled",
-  "DELIVERED_TO_SENDER": "Delivered to Sender"
+  "DELIVERED_TO_SENDER": "Delivered to Sender",
+  "TICKET_CREATED": "Ticket Created",
+  "NOT_YET_SHIPPED": "Not Yet Shipped",
+  "WAITING_FOR_CUSTOMER_ACTION": "Waiting for Customer Action",
+  "AVAILABLE_FOR_PICKUP": "Available for Pickup"
 }
