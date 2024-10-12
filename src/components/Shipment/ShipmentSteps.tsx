@@ -1,4 +1,3 @@
-import statusColor from "@/constants/statusColor";
 import { useLanguage } from "@/hooks/useLanguage";
 import { Shipment } from "@/models/Shipment";
 import { CheckIcon, TruckIcon } from "@heroicons/react/16/solid";
@@ -16,11 +15,22 @@ const Step = ({
   isLast: boolean;
   status: string;
 }) => {
+  let bgColor = "";
+  if (status === "DELIVERED_TO_SENDER") {
+    bgColor = "bg-primary-500";
+  } else if (status === "CANCELLED") {
+    bgColor = "bg-primary-500";
+  } else if (status === "DELIVERED") {
+    bgColor = "bg-green-500";
+  } else {
+    bgColor = "bg-blue-500";
+  }
+
   return (
     <li className={`flex ${!isLast && "w-full"} items-center`}>
       <span
         className={`flex items-center justify-center rounded-full ${
-          step <= active ? `bg-${statusColor(status)}` : "bg-gray-200"
+          step <= active ? bgColor : "bg-gray-200"
         }
         ${step < active ? "w-5 h-5" : "w-10 h-10 lg:h-12 lg:w-12"}
         `}
@@ -29,9 +39,7 @@ const Step = ({
       </span>
       {!isLast && (
         <div
-          className={`flex-1 h-1 ${
-            step < active ? `bg-${statusColor(status)}` : "bg-gray-200"
-          }`}
+          className={`flex-1 h-1 ${step < active ? bgColor : "bg-gray-200"}`}
         ></div>
       )}
     </li>

@@ -1,10 +1,18 @@
-import statusColor from "@/constants/statusColor";
 import { Shipment } from "@/models/Shipment";
 import { useTranslation } from "react-i18next";
 
 export default function ShipmentTable({ shipment }: { shipment: Shipment }) {
   const { t } = useTranslation();
-
+  let textColor = "";
+  if (shipment.CurrentStatus?.state === "DELIVERED_TO_SENDER") {
+    textColor = "text-primary-500";
+  } else if (shipment.CurrentStatus?.state === "CANCELLED") {
+    textColor = "text-primary-500";
+  } else if (shipment.CurrentStatus?.state === "DELIVERED") {
+    textColor = "text-green-500";
+  } else {
+    textColor = "text-blue-500";
+  }
   return (
     <div className="overflow-auto overflow-y-hidden">
       <table className="table-auto w-full min-w-[600px]">
@@ -26,11 +34,7 @@ export default function ShipmentTable({ shipment }: { shipment: Shipment }) {
         </thead>
         <tbody>
           <tr>
-            <td
-              className={`font-semibold text-${statusColor(
-                shipment.CurrentStatus?.state
-              )}`}
-            >
+            <td className={`font-semibold ${textColor}`}>
               {t(shipment.CurrentStatus?.state)}
             </td>
             <td className="font-semibold">
