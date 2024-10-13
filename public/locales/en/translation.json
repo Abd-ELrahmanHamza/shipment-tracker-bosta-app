@@ -27,5 +27,7 @@
   "Shipment is out for delivery": "Shipment is out for delivery",
   "Shipment is delivered": "Shipment is delivered",
   "PACKAGE_RECEIVED": "Package Received",
-  "OUT_FOR_DELIVERY": "Out for Delivery"
+  "OUT_FOR_DELIVERY": "Out for Delivery",
+  "IN_TRANSIT": "In Transit",
+  "DELIVERY_FAILED": "Delivery Failed"
 }

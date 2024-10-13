@@ -27,5 +27,7 @@
   "Shipment is out for delivery": "الشحنة في طريقها للتوصيل",
   "Shipment is delivered": "تم تسليم الشحنة",
   "PACKAGE_RECEIVED": "تم استلام الطرد",
-  "OUT_FOR_DELIVERY": "في طريقها للتوصيل"
+  "OUT_FOR_DELIVERY": "في طريقها للتوصيل",
+  "IN_TRANSIT": "في الطريق",
+  "DELIVERY_FAILED": "فشل التوصيل"
 }
